@@ -1,5 +1,6 @@
 # Sven
-[sven](./assets/sven_by_deviantart_spermbank-tycoon.png)
+
+![sven](./assets/sven_by_deviantart_spermbank-tycoon.png)
 
 ## intersystems-objectscript-template
 This is a template for InterSystems ObjectScript Github repository.
