@@ -1,5 +1,10 @@
 # Sven
-[sven](./assets/sven_by_deviantart_spermbank-tycoon.png)
+
+![sven](./assets/sven_by_deviantart_spermbank-tycoon.png)
+
+
+Image by [spermbank-tycoon](deviantart.com/spermbank-tycoon/) via [DeviantArt](https://www.deviantart.com/spermbank-tycoon/art/GNB-TOWER-402323036)
+
 
 ## intersystems-objectscript-template
 This is a template for InterSystems ObjectScript Github repository.
