@@ -3,9 +3,9 @@ Class sven.core.Sven
   ClassMethod Parser() As %Status
   {
     // function\ssvelteRun\(zenComponent\)\{(.*?)\}
-    Set  = $$$OK
+    Set tSC = $$$OK
 
-    return
+    return tSC
   }
 
 }
