@@ -19,7 +19,7 @@ ClassMethod Validate(args...) As %Status
 }
 
 /// Load all classes from a template project and create
-ClassMethod Project(args...) As %Status
+ClassMethod Generate(args...) As %Status
 {
 	Set tSC = ..Validate(args...)
 	Quit:$$$ISERR(tSC) tSC
@@ -60,7 +60,7 @@ ClassMethod Class(args...) As %Status [ Private ]
 	    pIgnore = $Get(args(5))
 	Set:pIgnore="" pIgnore = 1
 
-	#Dim pTemplate As sven.templates.Default.Class
+	#Dim pTemplate As sven.templates.Default
 
 	Try {
 		Set:pTemplate="" tSC = $$$ERROR(6404, "Template Class")
@@ -93,16 +93,6 @@ ClassMethod Class(args...) As %Status [ Private ]
 			Set newClass.Super = superClass
 			Set newClass.ProcedureBlock = 1
 			Do newClass.%Save()
-
-			If ((pTemplate.Name["utl.Instalador")||(pTemplate.Name["Install")) {
-				// If this was an install class (used to create web aplication)
-				// then add a projection
-				Set projection = ##class(%Dictionary.ProjectionDefinition).%New()
-				Set projection.Name = "Reference"
-				Set projection.Type = "Instalador"
-				Do newClass.Projections.Insert(projection)
-				Do newClass.%Save()
-			}
 
 			// Properties
 			For p=1:1:pTemplate.Properties.Count() {

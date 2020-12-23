@@ -60,7 +60,7 @@ ClientMethod onloadHandler() [ Language = javascript ]
 	svelteRun(this);
  	function svelteRun(zenComponent){
 	 		 //# Svelte build
-	}
+	}//#
 }
 
 }

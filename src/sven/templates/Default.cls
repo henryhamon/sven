@@ -21,7 +21,7 @@ XData LoadJSONData [ MimeType = application/json ]
   }
 }
 
-ClassMethod Load(Output template As %DynamicAbstractObject) As %Status
+ClassMethod Load(Output template As %DynamicObject) As %Status
 {
   Set tSC = $$$OK
 	Try {
@@ -33,13 +33,28 @@ ClassMethod Load(Output template As %DynamicAbstractObject) As %Status
     If '$IsObject(tStream) Set tSC=%objlasterror Quit
 
     // Create a dynamic object from the JSON content and write it as a string
-    Set dynObject = {}.%FromJSON(tStream)
-    Set template = dynObject.%ToJSON()
+    Set template = {}.%FromJSON(tStream)
+    //Set template = dynObject.%ToJSON()
 
 	} Catch tException {
 		Set:$$$ISOK(tSC) tSC = tException.AsStatus()
 	}
 	Quit tSC
+}
+
+ClassMethod Test()
+{
+    D ..Load(.json)
+    set iterator = json.%GetIterator()
+
+    while iterator.%GetNext(.key, .classes) {
+      //W !, key," ", classes
+      s classIterator = classes.%GetIterator()
+      while classIterator.%GetNext(.k, .c) {
+        W !, c.super
+        S propertyIterator = c.properties.%GetIterator()
+      }
+    }
 }
 
 }
